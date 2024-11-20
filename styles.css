@@ -1,0 +1,41 @@
+body{
+    background-color: #0D0D0D;
+}
+
+.content{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: #242426;
+    gap: 10px;
+}
+
+.btns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.centerDiv{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.checkBtn{
+    background-color: rgb(15, 255, 80);
+    color: black;
+}
+
+.checkBtn:hover{
+    background-color: #0D0D0D;
+    color: rgb(15, 255, 80);
+}
+
+.clearBtn{
+    background-color: rgb(250, 30, 14);
+    color: white;
+}
+
