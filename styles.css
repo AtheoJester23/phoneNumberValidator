@@ -1,5 +1,6 @@
 body{
     background-color: #0D0D0D;
+    font-family: "Montserrat", sans-serif;
 }
 
 .content{
@@ -9,12 +10,15 @@ body{
     padding: 10px;
     background-color: #242426;
     gap: 10px;
+    padding: 20px;
+    border-radius: 0px 15px 0px 15px;
 }
 
 .btns{
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 10px;
 }
 
 .centerDiv{
@@ -25,17 +29,53 @@ body{
 }
 
 .checkBtn{
+    user-select: none;
+    border: none;
+    padding: 7px 14px 7px 14px;
+    border-radius: 5px;
     background-color: rgb(15, 255, 80);
     color: black;
+    transform: translateY(-7%);
+    transition: transform 0.15s, background-color 0.15s, color 0.15s, box-shadow 0.15s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .checkBtn:hover{
     background-color: #0D0D0D;
     color: rgb(15, 255, 80);
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.checkBtn:active{
+    background-color: #1b1b1b;
+    color: whitesmoke;
 }
 
 .clearBtn{
-    background-color: rgb(250, 30, 14);
-    color: white;
+    user-select: none;
+    background-color: whitesmoke;
+    color: black;
+    transform: translateY(-7%);
+    transition: transform 0.15s, background-color 0.15s, color 0.15s, box-shadow 0.15s;
+    border: none;
+    padding: 7px 14px 7px 14px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.clearBtn:hover{
+    background-color: #0D0D0D;
+    color: whitesmoke;
+    transform: translateY(0);
+}
+
+.clearBtn:active{
+    background-color: #141414;
+    color: rgb(255, 15, 15);
+}
+
+#results-div{
+    text-align: center;
+    color: white;
+}
