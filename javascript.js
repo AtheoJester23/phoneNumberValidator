@@ -11,6 +11,7 @@ document.addEventListener("keydown", (event) => {
 
 function handleValidation() {
   let theInput = document.getElementById("user-input");
+  let theInputWSpace = theInput.value.trim();
   let inputVal = theInput.value.trim();
   let inputValNoSpace = inputVal.replace(/\s/g, "");
   let cleanedVal = inputVal.replace(/[-()\s]/g, "");
@@ -58,66 +59,66 @@ function handleValidation() {
         let count = splitTextNoClean.filter((char) => char === "-").length;
 
         if (splitTextNoClean[4] === "-" && count === 1) {
-          validNum(inputVal, theInput);
+          validNum(theInputWSpace, theInput);
         } else if (
           splitTextNoClean[4] === "-" &&
           splitTextNoClean[8] === "-" &&
           count === 2
         ) {
-          validNum(inputVal, theInput);
+          validNum(theInputWSpace, theInput);
         } else if (splitTextNoClean[7] === "-" && count === 1) {
-          validNum(inputVal, theInput);
+          validNum(theInputWSpace, theInput);
         } else {
-          notValidNum(inputVal, theInput);
+          notValidNum(theInputWSpace, theInput);
         }
       } else {
-        notValidNum(inputVal, theInput);
+        notValidNum(theInputWSpace, theInput);
       }
     } else {
-      validNum(inputVal, theInput);
+      validNum(theInputWSpace, theInput);
     }
   } else if (lengthVal === 10) {
     if (inputVal.includes("(") && inputVal.includes(")")) {
       if (splitTextNoClean[0] === "(" && splitTextNoClean[4] === ")") {
         if (inputVal.includes("-")) {
           if (splitTextNoClean[5] === "-" && count === 1) {
-            validNum(inputVal, theInput);
+            validNum(theInputWSpace, theInput);
           } else if (
             splitTextNoClean[5] === "-" &&
             splitTextNoClean[9] === "-" &&
             count === 2
           ) {
-            validNum(inputVal, theInput);
+            validNum(theInputWSpace, theInput);
           } else if (splitTextNoClean[8] === "-" && count === 1) {
-            validNum(inputVal, theInput);
+            validNum(theInputWSpace, theInput);
           } else {
-            notValidNum(inputVal, theInput);
+            notValidNum(theInputWSpace, theInput);
           }
         } else {
-          validNum(inputVal, theInput);
+          validNum(theInputWSpace, theInput);
         }
       } else {
-        notValidNum(inputVal, theInput);
+        notValidNum(theInputWSpace, theInput);
       }
     } else if (inputVal.includes("-")) {
       if (splitTextNoClean[3] === "-" && count === 1) {
-        validNum(inputVal, theInput);
+        validNum(theInputWSpace, theInput);
       } else if (splitTextNoClean[6] === "-" && count === 1) {
-        validNum(inputVal, theInput);
+        validNum(theInputWSpace, theInput);
       } else if (
         splitTextNoClean[3] === "-" &&
         splitTextNoClean[7] === "-" &&
         count === 2
       ) {
-        validNum(inputVal, theInput);
+        validNum(theInputWSpace, theInput);
       } else {
-        notValidNum(inputVal, theInput);
+        notValidNum(theInputWSpace, theInput);
       }
     } else {
-      validNum(inputVal, theInput);
+      validNum(theInputWSpace, theInput);
     }
   } else {
-    notValidNum(inputVal, theInput);
+    notValidNum(theInputWSpace, theInput);
   }
 }
 
@@ -130,17 +131,15 @@ document.querySelector(".clearBtn").addEventListener("click", () => {
   theInput.value = "";
 });
 
-function validNum(inputVal, theInput) {
-  theOutput += `Valid US number: <p>${inputVal}</p>`;
-  inputContainer.innerHTML = theOutput;
+function validNum(theInputWSpace, theInput) {
+  inputContainer.innerHTML += `<p class="results-text" style="color: #347928">Valid US number: ${theInputWSpace}</p>`;
 
   theInput.value = "";
   return;
 }
 
-function notValidNum(inputVal, theInput) {
-  theOutput += `Invalid US number: <p>${inputVal}</p>`;
-  inputContainer.innerHTML = theOutput;
+function notValidNum(theInputWSpace, theInput) {
+  inputContainer.innerHTML += `<p class="results-text" style="color: #ff0f0f">Invalid US number: ${theInputWSpace}</p>`;
 
   theInput.value = "";
   return;
